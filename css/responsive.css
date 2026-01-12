@@ -1,0 +1,218 @@
+/* ==================== 移动端优化（补充）==================== */
+
+/* 手机端（2列布局 - 适配iPhone 13 Pro Max等大屏手机）*/
+@media (max-width: 480px) {
+    .results-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+
+    .main-content {
+        padding: var(--space-2);
+        gap: var(--space-3);
+    }
+
+    .top-nav {
+        height: 56px;
+        padding: 0 var(--space-2);
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: var(--space-2);
+    }
+
+    .nav-center {
+        display: none;
+    }
+
+    .nav-btn,
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav-btn svg,
+    .icon-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .user-info {
+        font-size: 0.6875rem;
+        padding: var(--space-1) var(--space-2);
+        gap: var(--space-1);
+    }
+
+    .user-quota {
+        display: none;
+    }
+
+    .input-section {
+        padding: var(--space-3) 0;
+    }
+
+    .input-container {
+        border-radius: var(--radius-lg);
+        padding: var(--space-3);
+    }
+
+    .prompt-box {
+        margin-bottom: var(--space-3);
+    }
+
+    .prompt-box textarea {
+        min-height: 48px;
+        font-size: 0.875rem;
+        padding: var(--space-2);
+    }
+
+    .reference-section {
+        margin-bottom: var(--space-3);
+    }
+
+    .section-title,
+    .param-label {
+        font-size: 0.8125rem;
+    }
+
+    .ref-grid {
+        grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+        gap: var(--space-2);
+    }
+
+    /* 移动端显示折叠头部 */
+    .params-header {
+        display: flex;
+    }
+
+    .params-collapsible.collapsed .params-content {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .params-section {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .param-option {
+        padding: var(--space-2);
+        font-size: 0.75rem;
+    }
+
+    .generate-btn {
+        padding: var(--space-3);
+        font-size: 0.9375rem;
+    }
+
+    .result-card {
+        border-radius: var(--radius-lg);
+    }
+
+    .result-info {
+        padding: var(--space-3);
+    }
+
+    .result-prompt {
+        font-size: 0.8125rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .result-channel {
+        font-size: 0.6875rem;
+        padding: var(--space-1) var(--space-2);
+    }
+
+    .result-channel svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .result-meta {
+        padding-top: var(--space-3);
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        justify-content: flex-start;
+    }
+
+    .result-actions {
+        flex-wrap: nowrap;
+        gap: 4px;
+    }
+
+    .result-action-btn {
+        font-size: 0.625rem;
+        padding: 4px 6px;
+        gap: 2px;
+    }
+
+    .result-action-btn svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .loading-card {
+        padding: var(--space-4);
+    }
+
+    .loading-spinner {
+        width: 36px;
+        height: 36px;
+        margin: 0 auto var(--space-3);
+    }
+
+    .loading-text {
+        font-size: 0.875rem;
+    }
+
+    .loading-prompt {
+        font-size: 0.8125rem;
+    }
+
+    .user-info {
+        font-size: 0.75rem;
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .redeem-input-group {
+        gap: var(--space-1);
+    }
+
+    .redeem-input,
+    .redeem-btn {
+        font-size: 0.75rem;
+        padding: var(--space-1) var(--space-2);
+    }
+}
+
+/* 极小屏幕优化 */
+@media (max-width: 360px) {
+    .logo-text {
+        display: none;
+    }
+
+    .nav-btn,
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ref-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .param-options {
+        gap: var(--space-1);
+    }
+
+    /* 保持2列布局，但减小间距 */
+    .results-section {
+        gap: var(--space-2);
+    }
+}

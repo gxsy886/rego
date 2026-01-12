@@ -1,0 +1,72 @@
+/* Progress bar styles for task tracking */
+.progress-container {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-400));
+    transition: width 0.3s var(--ease-out);
+    border-radius: 3px;
+}
+
+.progress-percent {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--neutral-300);
+    font-weight: 500;
+}
+
+.loading-card .progress-container {
+    opacity: 0.8;
+}
+
+/* 参考图上传进度样式 */
+.ref-uploading {
+    position: relative;
+    cursor: default !important;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ref-upload-progress {
+    width: 80%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+.upload-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: var(--space-1);
+}
+
+.upload-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success), #10b981);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.upload-progress-text {
+    font-size: 0.625rem;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config Encryption Tool</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .result {
+            background: #f0f0f0;
+            padding: 15px;
+            margin-top: 20px;
+            word-break: break-all;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Config Encryption Tool</h1>
+    <p>Paste your <code>config.json</code> content below to encrypt it. This prevents casual reading of your API keys.
+    </p>
+
+    <label>Secret Passphrase (Must match client):</label><br>
+    <input type="text" id="passphrase" value="rego_secure_config_v1" style="width: 100%; padding: 8px; margin: 5px 0;">
+
+    <textarea id="input" placeholder='{"oss": {...}, "channels": [...]}'></textarea>
+
+    <button onclick="encrypt()">Encrypt</button>
+
+    <div id="result" class="result" hidden>
+        <h3>Encrypted Content:</h3>
+        <p>Replace your <code>config.json</code> content with this string (keep the quotes if putting inside another
+            json, but simpler is to just make config.json contain ONLY this string inside a property or just the string
+            if we parse strictly).</p>
+        <p><strong>Actually, for simplicity, we will save it as a JSON object:</strong></p>
+        <pre id="output"></pre>
+        <button onclick="copy()">Copy</button>
+    </div>
+
+    <script>
+        function encrypt() {
+            const content = document.getElementById('input').value;
+            const pass = document.getElementById('passphrase').value;
+
+            try {
+                // Validate JSON first
+                JSON.parse(content);
+
+                const encrypted = CryptoJS.AES.encrypt(content, pass).toString();
+                const output = JSON.stringify({
+                    _encrypted: true,
+                    data: encrypted
+                }, null, 2);
+
+                document.getElementById('output').textContent = output;
+                document.getElementById('result').hidden = false;
+            } catch (e) {
+                alert("Invalid JSON Input: " + e.message);
+            }
+        }
+
+        function copy() {
+            navigator.clipboard.writeText(document.getElementById('output').textContent);
+            alert("Copied!");
+        }
+    </script>
+</body>
+
+</html>
