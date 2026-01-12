@@ -1,4 +1,4 @@
-# SHIYI778 - AI 图像生成平台
+# rego- AI 图像生成平台
 
 一个基于 **Google Vertex AI (Gemini)** 的 AI 图像生成平台，完全采用 **Cloudflare Workers** 后端，前端纯静态 Web 实现，无需服务器！
 
